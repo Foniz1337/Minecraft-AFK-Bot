@@ -16,35 +16,7 @@ bot.on('spawn', () => {
     bot.setControlState('sneak', true);
     console.log(`✅ ${config.botUsername} is Ready!`);
   }, 3000);
-
-  switch (movementPhase) {
-    case 0:
-      bot.setControlState('forward', true);
-      bot.setControlState('back', false);
-      bot.setControlState('jump', false);
-      break;
-    case 1:
-      bot.setControlState('forward', false);
-      bot.setControlState('back', true);
-      bot.setControlState('jump', false);
-      break;
-    case 2:
-      bot.setControlState('forward', false);
-      bot.setControlState('back', false);
-      bot.setControlState('jump', true);
-      setTimeout(() => {
-        bot.setControlState('jump', false);
-      }, JUMP_DURATION);
-      break;
-    case 3:
-      bot.setControlState('forward', false);
-      bot.setControlState('back', false);
-      bot.setControlState('jump', false);
-      break;
-  }
-
-  movementPhase = (movementPhase + 1) % 4;
-
+  
 bot.on('error', (err) => {
   console.error('⚠️ Error:', err);
 });
