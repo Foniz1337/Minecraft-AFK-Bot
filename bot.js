@@ -24,7 +24,7 @@ bot.on('end', () => {
   console.log('⛔️ Bot Disconnected!');
 });
 bot.on("spawn", () => {
-    bot.chat("/register 27177890 27177890");
+    bot.chat("/login 27177890 27177890");
 });
   setInterval(() => {
     bot.look(
