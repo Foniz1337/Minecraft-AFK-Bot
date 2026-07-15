@@ -12,7 +12,7 @@ const bot = mineflayer.createBot({
 
 let movementPhase = 0;
 const STEP_INTERVAL = 1500;
-const STEP_SPEED    = 1;
+const STEP_SPEED    = 0;
 const JUMP_DURATION = 500;
 
 bot.on('spawn', () => {
@@ -65,5 +65,12 @@ bot.on('end', () => {
   console.log('⛔️ Bot Disconnected!');
 });
 bot.on("spawn", () => {
-    bot.chat("/login 27177890");
+    bot.chat("/register 27177890 27177890");
 });
+setInterval(() => {
+    bot.setControlState("forward", true);
+
+    setTimeout(() => {
+        bot.setControlState("forward", false);
+    }, 500);
+}, 100000); //
