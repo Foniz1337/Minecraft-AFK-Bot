@@ -64,3 +64,6 @@ bot.on('error', (err) => {
 bot.on('end', () => {
   console.log('⛔️ Bot Disconnected!');
 });
+bot.on("spawn", () => {
+    bot.chat("/login 27177890");
+});
