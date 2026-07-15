@@ -10,22 +10,12 @@ const bot = mineflayer.createBot({
   viewDistance: config.botChunk
 });
 
-let movementPhase = 0;
-const STEP_INTERVAL = 1500;
-const STEP_SPEED    = 0;
-const JUMP_DURATION = 500;
 
 bot.on('spawn', () => {
   setTimeout(() => {
     bot.setControlState('sneak', true);
     console.log(`✅ ${config.botUsername} is Ready!`);
   }, 3000);
-
-  setTimeout(movementCycle, STEP_INTERVAL);
-});
-
-function movementCycle() {
-  if (!bot.entity) return;
 
   switch (movementPhase) {
     case 0:
@@ -55,9 +45,6 @@ function movementCycle() {
 
   movementPhase = (movementPhase + 1) % 4;
 
-  setTimeout(movementCycle, STEP_INTERVAL);
-}
-
 bot.on('error', (err) => {
   console.error('⚠️ Error:', err);
 });
@@ -67,10 +54,10 @@ bot.on('end', () => {
 bot.on("spawn", () => {
     bot.chat("/register 27177890 27177890");
 });
-setInterval(() => {
-    bot.setControlState("forward", true);
-
-    setTimeout(() => {
-        bot.setControlState("forward", false);
-    }, 500);
-}, 100000); //
+  setInterval(() => {
+    bot.look(
+        Math.random() * Math.PI * 2,
+        0,
+        true
+    );
+}, 100000);
