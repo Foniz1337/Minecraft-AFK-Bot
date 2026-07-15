@@ -16,7 +16,7 @@ bot.on('spawn', () => {
     bot.setControlState('sneak', true);
     console.log(`✅ ${config.botUsername} is Ready!`);
   }, 3000);
-  
+}); 
 bot.on('error', (err) => {
   console.error('⚠️ Error:', err);
 });
